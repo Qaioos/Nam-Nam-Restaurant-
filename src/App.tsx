@@ -1,4 +1,3 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 //React Pages
@@ -9,6 +8,7 @@ import Shop from "./Pages/shop/Shop";
 import Contact from "./Pages/contact/Contact";
 import Whishlist from "./Pages/whishlist/Whishlist";
 import Cart from "./Pages/cart/Cart";
+import { MobileProvider } from "./utils/mobileHandeler";
 
 function App() {
     const Routing = createBrowserRouter([
@@ -25,7 +25,13 @@ function App() {
             ],
         },
     ]);
-    return  <RouterProvider router={Routing} />
+    return  (
+        <>
+        <MobileProvider>
+            <RouterProvider router={Routing} />
+        </MobileProvider>
+        </>
+    )
   
 }
 
